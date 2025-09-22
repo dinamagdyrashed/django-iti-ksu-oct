@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+
+{%block content%}
+<h1>All Trainees</h1>
+<table width="100%" border="1">
+    <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Image</th>
+        <th>Actions</th>
+    </tr>
+    {% for train in trainee%}
+    <tr>
+        <td>{{train.id}}</td>
+        <td>{{train.name}}</td>
+        <td>{{train.email}}</td>
+        <td><img src="{{ train.photo.url }}" alt="{{train.name}}"></td>
+        <td><a href="{% url 'updatetrainee' train.id %}">Update Trainee</a><a
+                href="{% url 'deletetrainee' train.id %}">Delete Trainee</a></td>
+    </tr>
+    {% endfor %}
+
+</table>
+{% endblock%}
