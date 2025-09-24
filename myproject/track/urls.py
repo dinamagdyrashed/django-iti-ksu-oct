@@ -1,7 +1,7 @@
 from django.urls import path
 from .views import *
 urlpatterns = [
-    path('',alltracks),
+    path('',alltracks,name='alltracks'),
     path('trackid/',gettrackid),
     path('Insert/',inserttrack),
     path('Update/<int:id>',updatetrack,name='updatetrack'),
